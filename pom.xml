@@ -1,21 +1,166 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <!--工程坐标-->
   <groupId>com.web.app</groupId>
-  <artifactId>app-demo</artifactId>
+  <artifactId>app-maven2</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>app-demo Maven Webapp</name>
+  <version>1.0-SNAPSHOT</version>
+
+  <!--工程的url信息-->
+  <name>app-maven2 Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+  <!--工程的依赖
+    测试、日志、dao、servlet、struts2、spring4
+  -->
   <dependencies>
+    <!--测试-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+
+    <!--日志-->
+    <!--日志接口-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.21</version>
+    </dependency>
+    <!--日志实现-->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <!--日志桥接包-->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
+
+    <!--dao-->
+    <!--连接mysql的驱动包-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.40</version>
+    </dependency>
+    <!--数据库连接池-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.11</version>
+    </dependency>
+    <!--hibernate整合-->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>4.3.11.Final</version>
+    </dependency>
+
+
+    <!--servlet相关内容-->
+    <!--支持老版本jsp的标签库-->
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <!--jstl标签库-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+    <!--json序列化和反序列化所需jar-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.4.3</version>
+    </dependency>
+
+
+    <!--struts2-->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-core</artifactId>
+      <version>2.3.16</version>
+      <!--将struts2依赖的javaassist去掉，只保留hibernate依赖的版本-->
+      <exclusions>
+        <exclusion>
+          <groupId>javassist</groupId>
+          <artifactId>javassist</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!--与spring整合jar-->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-spring-plugin</artifactId>
+      <version>2.5.10</version>
+    </dependency>
+    <!--struts2的json处理包-->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-json-plugin</artifactId>
+      <version>2.5.10</version>
+    </dependency>
+
+
+    <!--spring-->
+    <!--核心包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>4.2.5.RELEASE</version>
+    </dependency>
+    <!--bean包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>4.2.5.RELEASE</version>
+    </dependency>
+    <!--上下文包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>4.2.5.RELEASE</version>
+    </dependency>
+    <!--和hibernate整合-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>4.2.5.RELEASE</version>
+    </dependency>
+    <!--spring的web依赖-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>4.2.5.RELEASE</version>
+    </dependency>
+    <!--spring和junit整合-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>4.2.5.RELEASE</version>
+    </dependency>
   </dependencies>
+
+  <!--工程的构建信息-->
   <build>
-    <finalName>app-demo</finalName>
+    <finalName>app-maven2</finalName>
   </build>
 </project>
